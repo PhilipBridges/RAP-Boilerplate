@@ -1,11 +1,10 @@
 {
-  "name": "zeitnow",
+  "name": "rap-plate",
   "scripts": {
-    "start": "node src/index.js",
+    "start": "nodemon src/index.js --exec babel-node --presets es2015, stage-2",
     "playground": "prisma playground",
     "dev": "npm-run-all --parallel start playground",
     "prisma": "prisma",
-    "test": "nodemon src/index.js --exec babel-node --presets es2015,stage-2",
     "now-start": "nodemon src/index.js --exec babel-node --presets es2015,stage-2 micro"
   },
   "dependencies": {

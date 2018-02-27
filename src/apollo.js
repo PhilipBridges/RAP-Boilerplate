@@ -31,25 +31,6 @@ const httpLinkWithMiddleware = afterwareLink.concat(
   middlewareLink.concat(httpLink)
 );
 
-// const wsLink = new WebSocketLink({
-//   uri: "ws://localhost:4000/subscriptions",
-//   options: {
-//     reconnect: true,
-//     connectionParams: {
-//       token: localStorage.getItem("token"),
-//     }
-//   }
-// });
-
-// const link = split(
-//   ({ query }) => {
-//     const { kind, operation } = getMainDefinition(query);
-//     return kind === "OperationDefinition" && operation === "subscription";
-//   },
-//   wsLink,
-//   httpLinkWithMiddleware
-// );
-
 export default new ApolloClient({
   link: httpLinkWithMiddleware,
   cache: new InMemoryCache()
