@@ -4,7 +4,9 @@ import { InMemoryCache } from "apollo-cache-inmemory";
 import { setContext } from "apollo-link-context";
 import { ApolloLink } from "apollo-link";
 
-const httpLink = new HttpLink({ uri: "https://zeitnow-ghblvcgdph.now.sh/graphql"})
+require('dotenv').config({path: './.env'})
+
+const httpLink = new HttpLink({ uri: process.env.REACT_APP_URI })
 
 const middlewareLink = setContext(() => ({
   headers: {

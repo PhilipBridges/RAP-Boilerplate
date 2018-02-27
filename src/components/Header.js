@@ -27,6 +27,8 @@ class Header extends React.Component {
     this.props.history.replace("/")
   };
 
+  
+
   componentWillReceiveProps(nextProps) {
     if (this.props.location.key !== nextProps.location.key) {
       this.props.userQuery.refetch()

@@ -4,6 +4,8 @@ const CORS = require('micro-cors')({ allowHeaders: ['X-Requested-With', 'Access-
 const { Prisma } = require('prisma-binding')
 const resolvers = require('./resolvers')
 
+require('dotenv').config({path: '../.env'})
+
 const server = new GraphQLServer({
   typeDefs: "./src/schema.graphql",
   resolvers,
@@ -11,8 +13,8 @@ const server = new GraphQLServer({
     ...req,
     db: new Prisma({
       typeDefs: "src/generated/prisma.graphql",
-      endpoint: "https://us1.prisma.sh/phil-bridges-45e182/zeit/dev",
-      secret: "mysecret123",
+      endpoint: process.env.PRISMA_ENDPOINT,
+      secret: process.env.SECRET,
       debug: true,
     }),
   }),
